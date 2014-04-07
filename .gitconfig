@@ -1,0 +1,23 @@
+[include]
+        path = ~/.bbgitconfig
+[alias]
+    co = checkout
+    ci = commit
+    st = status --column
+    stu = status --column -uno
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+
+    sl = stash list
+    sp = stash pop
+    sa = stash apply
+    ssh= stash show
+    sd = stash drop
+    ssa = stash save
+[core]
+    preloadindex = true
+[color]
+    diff = auto
+    ui = auto

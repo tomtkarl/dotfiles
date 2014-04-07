@@ -1,0 +1,134 @@
+" This configuration file was tested with
+" /usr/local/bin/vim (7.0) and
+" /usr/local/bin/gvim (7.0)
+"this line prevents copydotfiles from recopying: dot-vimrc_included
+
+" ================================================================
+"" Basic Config 
+" ================================================================
+set backupdir=~/.vim/tmp,/var/tmp,/tmp
+set directory=~/.vim/tmp,/var/tmp,/tmp
+
+let mapleader=","
+inoremap jj <Esc>
+
+au BufWrite *.cpp,*.h,*.c silent !ctags *
+
+" ================================================================
+"" General
+" ================================================================
+set backspace=indent,eol,start
+set foldcolumn=2 " foldcolumn is width 2
+set foldmethod=syntax " use syntax folding
+set foldnestmax=3 " max 3 folding levels
+set foldminlines=4 " min 4 lines to create a fold
+set scrolloff=4 " begin scrolling 4 lines from window edge
+set wildmenu " use wildmenu
+"wildmenu ignore list
+set wildignore=*.o,*.obj,*.bak,*.exe,*.tsk,*.d,*.dd 
+" complete to longest common string
+set wildmode=longest:full
+
+set ttyfast "tf "smooths redraw by using more bandwidth
+set sessionoptions-=options
+set formatoptions-=o " don't autoformat on 'o' e.g. comment wrapping
+"show shortmessages
+set shortmess+=atIW
+" Set timeout for detecting command key sequence
+set timeoutlen=400
+"remember more history
+set history=1000
+
+"set autoread "update file modified outside of vim
+
+" ================================================================
+"" Display 
+" ================================================================
+set number "nu " print line numbers
+syntax on
+set textwidth=160 "tw " text width
+set nowrap " wrap text at window edge without modifying buffer
+set linebreak " break at a suitable character (as in breakat)
+colorscheme slate
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+if has("gui_running")
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
+endif
+
+" start with all folds open
+au BufRead,BufNewFile,BufWinEnter * normal zR
+" set filetype for csc2 files
+au BufRead,BufNewFile,BufWinEnter *.csc2 set filetype=csc2
+" highlight line segments running over 80 columns
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"apply highlight when opening a file, changing text (N or I), or opening a split
+au BufRead,InsertCharPre * 2mat OverLength /\%160v.\+/
+
+" ================================================================
+"" Searching
+" ================================================================
+"set ignorecase "ic " ignore case in search
+set noic "don't ignore case in search!
+"set smartcase "scs " don't ignore case if key includes a capital
+set incsearch " begin showing matches whilst typing search pattern
+
+" ================================================================
+"" Formatting 
+" ================================================================
+set expandtab "et " use spaces instead of tabs
+set cindent "cin " indent c style
+set tabstop=4 "ts " tabstop counts for 4 chars
+set shiftwidth=4 "sw " spaces to use in autoindent step
+
+set cino+=N-s " do not indent after namespace XX{
+set cino+=(0 " match open-bracket indentation when breaking parameter lists over multiple lines
+set autoindent "ai "copy indent when starting new line
+
+" ================================================================
+"" Mappings
+" ================================================================
+nnoremap <Space> viw 
+nnoremap <Leader>i :botright :vs %:r.cpp<CR>
+nnoremap <Leader>I :topleft :vs %:r.h<CR>
+
+"Remap <C-e> and <C-y> to shift the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+"swap ' and ` 
+"this way the easier-to-reach key jump to file AND line set by mark (ma)
+nnoremap ' `
+nnoremap ` '
+" map for getting rid of search highlighting
+nnoremap <silent> <Leader>n :silent :nohlsearch<CR>
+" quick :wa map
+noremap <Leader>wa :wa<CR>
+" quick :wq map
+noremap <Leader>wq :wq<CR>
+"quick :w map
+noremap <Leader>w :w<CR>
+
+
+" ================================================================
+"" Bloomberg-specific vim configuration
+" ================================================================
+if filereadable(expand("~/.bbvimrc"))
+    so ~/.bbvimrc
+endif
+" ================================================================
+"" Plugins 
+" ================================================================
+" Enable :Man
+runtime ftplugin/man.vim
+"enable % to match if, else, xml, etc.
+runtime macros/matchit.vim
+
+if filereadable(expand("~/.vim/vundles.vim"))
+  source ~/.vim/vundles.vim
+endif
+
+
+" ================ Custom Settings ========================
+so ~/.vim/settings.vim
