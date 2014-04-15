@@ -33,11 +33,11 @@ export PS1="[\[\e[0;31m\]\u\[\e[m\]@\[\e[0;35m\]\h \[\e[1;32m\]\w\[\e[m\]]\$ "
 
 
 # User variables
-codegrep() { 
-    if [[ $# -eq 0 ]] 
-    then 
+codegrep() {
+    if [[ $# -eq 0 ]]
+    then
         echo "Usage: codegrep <pattern> "
-    else  
+    else
         grep -nT --colour \
             --exclude=tags \
             --exclude=*.o \
@@ -46,13 +46,13 @@ codegrep() {
             --exclude=*.d \
             --exclude=*.dd \
             "$1" *
-    fi 
+    fi
 }
 sshcd() {
     if [[ $# -lt 1 ]]
     then
         echo "Usage: sshcd <server> [<path>]"
-    else 
+    else
         ssh -t $LOGNAME@$1 "export SSHCDPATH=${path:-$(pwd)}; exec $BASH --login "
     fi
 }
@@ -63,7 +63,7 @@ pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
 }
 PROMPT_COMMAND='echo -ne "\033k${HOSTNAME} $(last2dirs)\033\\"'
 function dupscreen {
-    screen bash -c "export SSHCDPATH=$PWD && exec $SHELL --login" 
+    screen bash -c "export SSHCDPATH=$PWD && exec $SHELL --login"
 }
 
 if [[ -e ~/.bbbashrc ]]

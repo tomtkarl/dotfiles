@@ -1,0 +1,13 @@
+*.o
+*.tsk
+ported.sundev1
+*.d
+*.dd
+*.swp
+.*.swp
+.*.swn
+00deps
+00plink*
+00sourcelist
+tags
+Session.vim
