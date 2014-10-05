@@ -61,7 +61,7 @@ sshcd() {
 function last2dirs {
 pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
 }
-PROMPT_COMMAND='echo -ne "\033k${HOSTNAME} $(last2dirs)\033\\"'
+PROMPT_COMMAND='echo -ne "\033k$(hostname -s) $(last2dirs)\033\\"'
 function dupscreen {
     screen bash -c "export SSHCDPATH=$PWD && exec $SHELL --login"
 }
