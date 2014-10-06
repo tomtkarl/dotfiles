@@ -50,6 +50,10 @@ set textwidth=160 "tw " text width
 set nowrap " wrap text at window edge without modifying buffer
 set linebreak " break at a suitable character (as in breakat)
 colorscheme slate
+highlight DiffAdd cterm=none ctermfg=Black ctermbg=Green gui=none guifg=Black guibg=Green
+highlight DiffDelete cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black guibg=Red
+highlight DiffChange cterm=none ctermfg=Black ctermbg=Yellow gui=none guifg=Black guibg=Yellow
+highlight DiffText cterm=none ctermfg=Black ctermbg=Magenta gui=none guifg=Black guibg=Magenta
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
@@ -81,10 +85,15 @@ set expandtab "et " use spaces instead of tabs
 set cindent "cin " indent c style
 set tabstop=4 "ts " tabstop counts for 4 chars
 set shiftwidth=4 "sw " spaces to use in autoindent step
+set smarttab "insert and delete tab's worth of spaces on blank lines
 
 set cino+=N-s " do not indent after namespace XX{
 set cino+=(0 " match open-bracket indentation when breaking parameter lists over multiple lines
 set autoindent "ai "copy indent when starting new line
+
+set fo+=ro "format options
+set comments-=:// "do not auto insert single line comments
+set comments+=f:// " do auto insert multi-line comment continuations
 
 " ================================================================
 "" Mappings
