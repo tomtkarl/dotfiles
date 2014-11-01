@@ -1,5 +1,5 @@
 [include]
-        path = ~/.bbgitconfig
+    path = ~/.gitconfig.local
 [alias]
     co = checkout
     ci = commit
