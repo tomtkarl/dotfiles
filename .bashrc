@@ -16,6 +16,7 @@ alias cloc='~/cloc-1.56.pl'
 alias vim='vim -w ~/.vim/keylog'
 alias gvim='gvim -w ~/.vim/keylog 2>&1 > /dev/null'
 alias metasymfind="cat - | awk '{ print \$1 }' | xargs symfind | awk 'BEGIN{FS=\"[\"} { print \$1 }' | sort | uniq | tr '\n' ' ' | sed -e 's/\(\b\S\)/-l\1/g' && echo \"\""
+alias ack='ack --ignore-file=ext:d,dd'
 
 
 # Map home and end keys
@@ -61,7 +62,14 @@ sshcd() {
 function last2dirs {
 pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
 }
-PROMPT_COMMAND='echo -ne "\033k$(hostname -s) $(last2dirs)\033\\"'
+
+#screen specific functionality
+if [[ -n ${STY} ]]
+then
+    PROMPT_COMMAND='echo -ne "\033k${HOSTNAME} $(last2dirs)\033\\";
+                 history -a;'
+fi
+
 function dupscreen {
     screen bash -c "export SSHCDPATH=$PWD && exec $SHELL --login"
 }

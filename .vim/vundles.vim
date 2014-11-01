@@ -26,7 +26,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
-
+"Bundle 'valloric/youcompleteme'
+Bundle 'mileszs/ack.vim'
+Bundle 'mbbill/undotree'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
