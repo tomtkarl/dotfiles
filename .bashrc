@@ -76,7 +76,7 @@ function dupscreen {
 
 if [[ -e ~/.bbbashrc ]]
 then
-    source ~/.bbbashrc
+    source ~/.bashrc.local
 fi
 if [[ -e ~/.git-completion.bash ]]
 then
