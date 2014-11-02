@@ -23,3 +23,5 @@
     ui = auto
 [merge]
 	conflictstyle = diff3
+[push]
+	default = matching
