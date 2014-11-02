@@ -66,7 +66,7 @@ pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
 #screen specific functionality
 if [[ -n ${STY} ]]
 then
-    PROMPT_COMMAND='echo -ne "\033k${HOSTNAME} $(last2dirs)\033\\";
+    PROMPT_COMMAND='echo -ne "\033k$(hostname -s) $(last2dirs)\033\\";
                  history -a;'
 fi
 
