@@ -29,6 +29,7 @@ Bundle 'godlygeek/tabular'
 "Bundle 'valloric/youcompleteme'
 Bundle 'mileszs/ack.vim'
 Bundle 'mbbill/undotree'
+Bundle 'airblade/vim-gitgutter'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on

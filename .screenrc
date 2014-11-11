@@ -30,3 +30,6 @@ hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %{= KG}%t%{= Kr}]%{= Kd}%
 bind f eval "hardstatus ignore"
 # Show hardstatus: ctrl-a F
 bind F eval "hardstatus alwayslastline"
+
+# set INSCREEN so we can forward screen-ness across ssh etc.
+setenv INSCREEN yes

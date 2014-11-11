@@ -49,6 +49,14 @@ codegrep() {
             "$1" *
     fi
 }
+
+#ssh() {
+    #echo "wut"
+  #[[ -n "$INSCREEN" ]] && TERM=screen-256color
+  #env ssh -t $*
+  #$SCREEN_TITLE_CMD
+#}
+
 sshcd() {
     if [[ $# -lt 1 ]]
     then
@@ -60,7 +68,7 @@ sshcd() {
 
 # Screen variables
 function last2dirs {
-pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
+    pwd | awk -F\/ '{print $(NF-1),$(NF)}' | sed 's# #/#'
 }
 
 #screen specific functionality

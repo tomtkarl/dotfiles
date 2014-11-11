@@ -85,7 +85,7 @@ set expandtab "et " use spaces instead of tabs
 set cindent "cin " indent c style
 set tabstop=4 "ts " tabstop counts for 4 chars
 set shiftwidth=4 "sw " spaces to use in autoindent step
-set smarttab "insert and delete tab's worth of spaces on blank lines
+"set smarttab "insert and delete tab's worth of spaces on blank lines
 
 set cino+=N-s " do not indent after namespace XX{
 set cino+=(0 " match open-bracket indentation when breaking parameter lists over multiple lines
@@ -101,6 +101,9 @@ set comments+=f:// " do auto insert multi-line comment continuations
 nnoremap <Space> viw 
 nnoremap <Leader>i :botright :vs %:r.cpp<CR>
 nnoremap <Leader>I :topleft :vs %:r.h<CR>
+
+" change paste
+nmap <silent> cp "_cw<C-R>"<Esc>
 
 "Remap <C-e> and <C-y> to shift the viewport faster
 nnoremap <C-e> 3<C-e>
@@ -118,6 +121,12 @@ noremap <Leader>wa :wa<CR>
 noremap <Leader>wq :wq<CR>
 "quick :w map
 noremap <Leader>w :w<CR>
+
+" ================================================================
+"" autocmds
+" ================================================================
+" Remove trailing whitespace on save
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 
 " ================================================================
