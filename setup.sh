@@ -6,10 +6,11 @@
 	.screenrc \
 	.vim \
 	.vimrc \
-	.Xresources 
-do 
+	.Xresources \
+    .inputrc
+do
 	echo "Linking ${df}"
-	if [[ -f ~/${df} ]] 
+	if [[ -f ~/${df} ]]
 	then
 		echo "Backing up existing ~/${df}"
 		mv ~/${df} ~/${df}.bak
