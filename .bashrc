@@ -12,10 +12,8 @@ alias la='ls -a'
 alias lal='ls -la'
 alias rm='rm -i'
 alias logdog='git log --decorate --oneline --graph'
-alias cloc='~/cloc-1.56.pl'
 alias vim='vim -w ~/.vim/keylog'
 alias gvim='gvim -w ~/.vim/keylog 2>&1 > /dev/null'
-alias metasymfind="cat - | awk '{ print \$1 }' | xargs symfind | awk 'BEGIN{FS=\"[\"} { print \$1 }' | sort | uniq | tr '\n' ' ' | sed -e 's/\(\b\S\)/-l\1/g' && echo \"\""
 alias ack='ack --ignore-file=ext:d,dd'
 
 
@@ -30,7 +28,7 @@ export HISTCONTROL=ignoredups    # Don't put duplicate lines in the history.
 export EDITOR=vim
 export TERM=xterm
 
-export PS1="[\[\e[0;31m\]\u\[\e[m\]@\[\e[0;35m\]\h \[\e[1;32m\]\w\[\e[m\]]\$ "
+export PS1="[\[\e[0;31m\]\t \u\[\e[m\]@\[\e[0;35m\]\h \[\e[1;32m\]\w\[\e[m\]]\$ "
 
 
 # User variables
@@ -72,17 +70,17 @@ function last2dirs {
 }
 
 #screen specific functionality
-if [[ -n ${STY} ]]
-then
-    PROMPT_COMMAND='echo -ne "\033k$(hostname -s) $(last2dirs)\033\\";
+#if [[ -n ${STY} ]]
+#then
+    PROMPT_COMMAND='echo -ne "\033k${HOSTNAME} $(last2dirs)\033\\";
                  history -a;'
-fi
+#fi
 
 function dupscreen {
     screen bash -c "export SSHCDPATH=$PWD && exec $SHELL --login"
 }
 
-if [[ -e ~/.bbbashrc ]]
+if [[ -e ~/.bashrc.local ]]
 then
     source ~/.bashrc.local
 fi
