@@ -4,7 +4,7 @@
 "this line prevents copydotfiles from recopying: dot-vimrc_included
 
 " ================================================================
-"" Basic Config 
+"" Basic Config
 " ================================================================
 set backupdir=~/.vim/tmp,/var/tmp,/tmp
 set directory=~/.vim/tmp,/var/tmp,/tmp
@@ -25,7 +25,7 @@ set foldminlines=4 " min 4 lines to create a fold
 set scrolloff=4 " begin scrolling 4 lines from window edge
 set wildmenu " use wildmenu
 "wildmenu ignore list
-set wildignore=*.o,*.obj,*.bak,*.exe,*.tsk,*.d,*.dd 
+set wildignore=*.o,*.obj,*.bak,*.exe,*.tsk,*.d,*.dd
 " complete to longest common string
 set wildmode=longest:full
 
@@ -42,7 +42,7 @@ set history=1000
 "set autoread "update file modified outside of vim
 
 " ================================================================
-"" Display 
+"" Display
 " ================================================================
 set number "nu " print line numbers
 syntax on
@@ -69,6 +69,11 @@ au BufRead,BufNewFile,BufWinEnter *.csc2 set filetype=csc2
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "apply highlight when opening a file, changing text (N or I), or opening a split
 au BufRead,InsertCharPre * 2mat OverLength /\%160v.\+/
+" highlight lone colon characters
+highlight WarnChar ctermbg=yellow ctermfg=red guibg=#FFCC33 guifg=#FF0000
+"apply highlight when opening a file, changing text (N or I), or opening a split
+au BufRead,InsertCharPre *.cpp 2mat WarnChar /\w\+:\w\+/
+
 
 " ================================================================
 "" Searching
@@ -79,7 +84,7 @@ set noic "don't ignore case in search!
 set incsearch " begin showing matches whilst typing search pattern
 
 " ================================================================
-"" Formatting 
+"" Formatting
 " ================================================================
 set expandtab "et " use spaces instead of tabs
 set cindent "cin " indent c style
@@ -98,7 +103,7 @@ set comments+=f:// " do auto insert multi-line comment continuations
 " ================================================================
 "" Mappings
 " ================================================================
-nnoremap <Space> viw 
+nnoremap <Space> viw
 nnoremap <Leader>i :botright :vs %:r.cpp<CR>
 nnoremap <Leader>I :topleft :vs %:r.h<CR>
 
@@ -109,7 +114,7 @@ nmap <silent> cp "_cw<C-R>"<Esc>
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-"swap ' and ` 
+"swap ' and `
 "this way the easier-to-reach key jump to file AND line set by mark (ma)
 nnoremap ' `
 nnoremap ` '
@@ -130,13 +135,13 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 
 " ================================================================
-"" Bloomberg-specific vim configuration
+"" Local vim configuration
 " ================================================================
-if filereadable(expand("~/.bbvimrc"))
-    so ~/.bbvimrc
+if filereadable(expand("~/.vimrc.local"))
+    so ~/.vimrc.local
 endif
 " ================================================================
-"" Plugins 
+"" Plugins
 " ================================================================
 " Enable :Man
 runtime ftplugin/man.vim
