@@ -30,6 +30,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'mbbill/undotree'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'terryma/vim-expand-region'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
