@@ -59,6 +59,8 @@ set list listchars=tab:\ \ ,trail:·
 
 if has("gui_running")
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
+    set guioptions-=m
+    set guioptions-=T
 endif
 
 " start with all folds open
