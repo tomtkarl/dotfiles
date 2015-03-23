@@ -15,6 +15,7 @@ alias logdog='git log --decorate --oneline --graph'
 alias vim='vim -w ~/.vim/keylog'
 alias gvim='gvim -w ~/.vim/keylog 2>&1 > /dev/null'
 alias ack='ack --ignore-file=ext:d,dd'
+alias ssh-agent-start='eval $(ssh-agent)'
 
 
 # Map home and end keys
