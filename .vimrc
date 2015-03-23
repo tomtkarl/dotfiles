@@ -106,8 +106,15 @@ set comments+=f:// " do auto insert multi-line comment continuations
 "" Mappings
 " ================================================================
 nnoremap <Space> viw
+" open corresponding .cpp file in vertical split
 nnoremap <Leader>i :botright :vs %:r.cpp<CR>
+" open corresponding .h file in vertical split
 nnoremap <Leader>I :topleft :vs %:r.h<CR>
+
+" Ctrl-\ to open tag in new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Alt-] to open tag in vertical split
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " change paste
 nmap <silent> cp "_cw<C-R>"<Esc>

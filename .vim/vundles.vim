@@ -31,6 +31,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'mbbill/undotree'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'terryma/vim-expand-region'
+Bundle 'xterm-color-table.vim'
+Bundle 'majutsushi/tagbar'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
