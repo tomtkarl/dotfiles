@@ -33,6 +33,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'terryma/vim-expand-region'
 Bundle 'xterm-color-table.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/xml.vim'
+Bundle 'junegunn/vim-easy-align'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
