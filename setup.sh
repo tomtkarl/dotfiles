@@ -18,5 +18,7 @@ do
 	fi
 	ln -s ~/.dotfiles/${df} ~/${df}
 done
-#clone vundle for vim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [[! -d ~/.vim/bundle/Vundle.vim ]]; then \
+    #clone vundle for vim
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+fi
