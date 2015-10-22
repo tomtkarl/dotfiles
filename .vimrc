@@ -12,7 +12,7 @@ set directory=~/.vim/tmp,/var/tmp,/tmp
 let mapleader=","
 inoremap jj <Esc>
 
-au BufWrite *.cpp,*.h,*.c silent !ctags *
+"au BufWrite *.cpp,*.h,*.c silent !ctags *
 
 " ================================================================
 "" General
@@ -20,7 +20,7 @@ au BufWrite *.cpp,*.h,*.c silent !ctags *
 set backspace=indent,eol,start
 set foldcolumn=2 " foldcolumn is width 2
 set foldmethod=syntax " use syntax folding
-set foldnestmax=3 " max 3 folding levels
+set foldnestmax=10 " max 10 folding levels
 set foldminlines=4 " min 4 lines to create a fold
 set scrolloff=4 " begin scrolling 4 lines from window edge
 set wildmenu " use wildmenu
@@ -55,7 +55,8 @@ highlight DiffDelete cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black g
 highlight DiffChange cterm=none ctermfg=Black ctermbg=Yellow gui=none guifg=Black guibg=Yellow
 highlight DiffText cterm=none ctermfg=Black ctermbg=Magenta gui=none guifg=Black guibg=Magenta
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+set list
+set listchars=tab:>-,trail:·
 
 if has("gui_running")
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
@@ -74,7 +75,7 @@ au BufRead,InsertCharPre * 2mat OverLength /\%160v.\+/
 " highlight lone colon characters
 highlight WarnChar ctermbg=yellow ctermfg=red guibg=#FFCC33 guifg=#FF0000
 "apply highlight when opening a file, changing text (N or I), or opening a split
-au BufRead,InsertCharPre *.cpp 2mat WarnChar /\w\+:\w\+/
+au BufRead,InsertCharPre *.cpp 2mat WarnChar /\w\+;\?:;\?\w\+/
 
 
 " ================================================================
@@ -106,10 +107,6 @@ set comments+=f:// " do auto insert multi-line comment continuations
 "" Mappings
 " ================================================================
 nnoremap <Space> viw
-" open corresponding .cpp file in vertical split
-nnoremap <Leader>i :botright :vs %:r.cpp<CR>
-" open corresponding .h file in vertical split
-nnoremap <Leader>I :topleft :vs %:r.h<CR>
 
 " Ctrl-\ to open tag in new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -140,7 +137,7 @@ noremap <Leader>w :w<CR>
 "" autocmds
 " ================================================================
 " Remove trailing whitespace on save
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+"autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 
 " ================================================================
