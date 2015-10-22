@@ -1,1 +1,1 @@
-let g:ack_default_options = " -s -H --nocolor --nogroup --column --smart-case --follow -k"
+let g:ack_default_options = " --ignore-file=is:tags --ignore-file=ext:d,dd --ignore-dir=llcalc_work-* -s -H --nocolor --nogroup --column"
