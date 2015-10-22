@@ -2,7 +2,7 @@ unamestr=$(uname -s)
 #if [[ "$unamestr" == 'Linux' ]]
 #then
 #fi
-alias ls='ls --color=auto --hide="*.o" --hide="*.d"'
+alias ls='ls --color=auto --hide="*.o" --hide="*.d" --hide="*.dd"'
 PAGER=/usr/bin/less
 alias cd='pushd >/dev/null'
 alias bd='popd'
@@ -14,7 +14,6 @@ alias rm='rm -i'
 alias logdog='git log --decorate --oneline --graph'
 alias vim='vim -w ~/.vim/keylog'
 alias gvim='gvim -w ~/.vim/keylog 2>&1 > /dev/null'
-alias ack='ack --ignore-file=ext:d,dd'
 alias ssh-agent-start='eval $(ssh-agent)'
 
 
@@ -23,7 +22,7 @@ bind '"\e[1~": beginning-of-line'
 bind '"\e[4~": end-of-line'
 
 export HISTFILESIZE=5000          # Store 5000 commands in history
-export HISTCONTROL=ignoredups    # Don't put duplicate lines in the history.
+export HISTCONTROL=ignoredups:ignorespace    # Don't put duplicate lines in the history.
 
 # Exports
 export EDITOR=vim
@@ -63,6 +62,11 @@ sshcd() {
     else
         ssh -t $LOGNAME@$1 "export SSHCDPATH=${path:-$(pwd)}; exec $BASH --login "
     fi
+}
+
+biggest() {
+    dir=${1:-.}
+    find $dir -type f -exec du -a {} \+ | sort -rn
 }
 
 # Screen variables
