@@ -18,6 +18,8 @@
     ssh= stash show
     sd = stash drop
     ssa = stash save
+
+    tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
 [core]
     preloadindex = true
 [color]
@@ -25,5 +27,6 @@
     ui = auto
 [merge]
 	conflictstyle = diff3
+	tool = vimdiff
 [push]
 	default = matching
