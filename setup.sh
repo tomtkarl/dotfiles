@@ -7,7 +7,8 @@
 	.vim \
 	.vimrc \
 	.Xresources \
-    .inputrc
+    .inputrc \
+    .ackrc
 do
 	echo "Linking ${df}"
 	if [[ -f ~/${df} ]]

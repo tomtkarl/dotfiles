@@ -1,0 +1,8 @@
+--color
+--pager
+less -r
+--smart-case
+--follow
+-k
+--ignore-file=ext:d,dd
+--ignore-file=is:tags
