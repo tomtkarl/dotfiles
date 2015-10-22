@@ -1,4 +1,4 @@
-#GNU Screen - main configuration file 
+#GNU Screen - main configuration file
 # All other .screenrc files will source this file to inherit settings.
 # Author: Christian Wills - cwills.sys@gmail.com
 
@@ -19,14 +19,39 @@ defbce "on"
 # Cache 30000 lines for scroll back
 defscrollback 30000
 
-hardstatus alwayslastline 
+hardstatus alwayslastline
 # Very nice tabbed colored hardstatus line
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %{= KG}%t%{= Kr}]%{= Kd}%+w %-= %{KG}%H%{KW}| %m/%d/%y'
 
 # change command character from ctrl-a to ctrl-b (emacs users may want this)
 #escape ^Bb
 
-# Hide hardstatus: ctrl-a f 
+#allow change region with mouse
+#mousetrack on
+
+#disable startup message
+startup_message off
+
+# navigating regions with Ctrl-arrows
+bindkey "^[[1;5D" focus left
+bindkey "^[[1;5C" focus right
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5B" focus down
+
+# use hjkl keys to resize regions
+bind -c rsz h eval "resize -h -5" "command -c rsz"
+bind -c rsz j eval "resize -v -5" "command -c rsz"
+bind -c rsz k eval "resize -v +5" "command -c rsz"
+bind -c rsz l eval "resize -h +5" "command -c rsz"
+
+# quickly switch between regions using tab and arrows
+bind -c rsz \t    eval "focus"       "command -c rsz" # Tab
+bind -c rsz -k kl eval "focus left"  "command -c rsz" # Left
+bind -c rsz -k kr eval "focus right" "command -c rsz" # Right
+bind -c rsz -k ku eval "focus up"    "command -c rsz" # Up
+bind -c rsz -k kd eval "focus down"  "command -c rsz" # Down
+
+# Hide hardstatus: ctrl-a f
 bind f eval "hardstatus ignore"
 # Show hardstatus: ctrl-a F
 bind F eval "hardstatus alwayslastline"
