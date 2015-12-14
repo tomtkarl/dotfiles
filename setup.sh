@@ -12,7 +12,7 @@
     .tmux.conf
 do
 	tput setaf 5; echo "Linking ${df}"; tput sgr0
-	if [[ -f ~/${df} ]]
+	if [[ -e ~/${df} ]]
 	then
 		tput setaf 1; echo "Backing up existing ~/${df}"; tput sgr0
 		mv ~/${df} ~/${df}.bak
