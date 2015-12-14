@@ -15,18 +15,20 @@ alias logdog='git log --decorate --oneline --graph'
 alias vim='vim -w ~/.vim/keylog'
 alias gvim='gvim -w ~/.vim/keylog 2>&1 > /dev/null'
 alias ssh-agent-start='eval $(ssh-agent)'
-
+alias tmux='TERMINFO=/usr/share/terminfo/x/xterm-16color TERM=xterm-16color tmux -2'
 
 # Map home and end keys
 bind '"\e[1~": beginning-of-line'
 bind '"\e[4~": end-of-line'
+
+#disable C-s C-q
+stty -ixon
 
 export HISTFILESIZE=5000          # Store 5000 commands in history
 export HISTCONTROL=ignoredups:ignorespace    # Don't put duplicate lines in the history.
 
 # Exports
 export EDITOR=vim
-export TERM=xterm
 
 export PS1="[\[\e[0;31m\]\t \u\[\e[m\]@\[\e[0;35m\]\h \[\e[1;32m\]\w\[\e[m\]]\$ "
 
