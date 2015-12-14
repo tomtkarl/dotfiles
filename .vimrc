@@ -19,7 +19,7 @@ inoremap jj <Esc>
 " ================================================================
 set backspace=indent,eol,start
 set foldcolumn=2 " foldcolumn is width 2
-set foldmethod=syntax " use syntax folding
+set foldmethod=indent " use indent folding for speed
 set foldnestmax=10 " max 10 folding levels
 set foldminlines=4 " min 4 lines to create a fold
 set scrolloff=4 " begin scrolling 4 lines from window edge
@@ -45,11 +45,13 @@ set history=1000
 "" Display
 " ================================================================
 set number "nu " print line numbers
-syntax on
+syntax enable
 set textwidth=160 "tw " text width
 set nowrap " wrap text at window edge without modifying buffer
 set linebreak " break at a suitable character (as in breakat)
-colorscheme slate
+set t_Co=16
+set background=dark
+colorscheme solarized
 highlight DiffAdd cterm=none ctermfg=Black ctermbg=Green gui=none guifg=Black guibg=Green
 highlight DiffDelete cterm=none ctermfg=Black ctermbg=Red gui=none guifg=Black guibg=Red
 highlight DiffChange cterm=none ctermfg=Black ctermbg=Yellow gui=none guifg=Black guibg=Yellow
@@ -125,7 +127,7 @@ nnoremap <C-y> 3<C-y>
 nnoremap ' `
 nnoremap ` '
 " map for getting rid of search highlighting
-nnoremap <silent> <Leader>n :silent :nohlsearch<CR>
+"nnoremap <silent> <Leader>n :silent :nohlsearch<CR>
 " quick :wa map
 noremap <Leader>wa :wa<CR>
 " quick :wq map
