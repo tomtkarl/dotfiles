@@ -56,5 +56,8 @@ bind f eval "hardstatus ignore"
 # Show hardstatus: ctrl-a F
 bind F eval "hardstatus alwayslastline"
 
+#disable the visual bell
+vbell off
+
 # set INSCREEN so we can forward screen-ness across ssh etc.
 setenv INSCREEN yes
