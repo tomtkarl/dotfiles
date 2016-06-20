@@ -15,19 +15,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " let Vundle manage Vundle (required)
-Bundle "gmarik/vundle"
+Bundle "VundleVim/Vundle.vim"
 
 " Vundle Bundles
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
-"Bundle 'valloric/youcompleteme'
 Bundle 'mileszs/ack.vim'
 Bundle 'mbbill/undotree'
 Bundle 'airblade/vim-gitgutter'
@@ -36,9 +33,10 @@ Bundle 'xterm-color-table.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/xml.vim'
-Bundle 'junegunn/vim-easy-align'
 Bundle 'vim-scripts/Mark'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'danro/rename.vim'
+Bundle 'SirVer/ultisnips'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
