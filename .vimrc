@@ -12,7 +12,8 @@ set directory=~/.vim/tmp,/var/tmp,/tmp
 let mapleader=","
 inoremap jj <Esc>
 
-"au BufWrite *.cpp,*.h,*.c silent !ctags *
+" map <ctrl>+F12 to generate ctags for current folder:
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 " ================================================================
 "" General
