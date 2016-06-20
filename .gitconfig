@@ -20,6 +20,7 @@
     ssa = stash save
 
     tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
+    fix = "!f() { vim -p $(git diff --name-only --diff-filter=U); }; f"
 [core]
     preloadindex = true
 [color]
