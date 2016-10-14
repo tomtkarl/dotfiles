@@ -61,6 +61,10 @@ highlight DiffText cterm=none ctermfg=Black ctermbg=Magenta gui=none guifg=Black
 set list
 set listchars=tab:>-,trail:·
 
+" cursor higlighting
+set cursorcolumn
+set cursorline
+
 if has("gui_running")
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
     set guioptions-=m
@@ -140,7 +144,7 @@ noremap <Leader>w :w<CR>
 "" autocmds
 " ================================================================
 " Remove trailing whitespace on save
-"autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+autocmd BufWritePre * if ! &bin | silent! %s/\s\+$//ge | endif
 
 
 " ================================================================
