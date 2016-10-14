@@ -2,6 +2,19 @@
 # Personal aliases and functions should go in ~/.bashrc.  System wide
 # environment variables and startup programs are in /etc/profile.
 # System wide aliases and functions are in /etc/bashrc.
+prepend () {
+  # First remove the directory
+  local IFS=':'
+  local NEWPATH
+  for DIR in $PATH; do
+     if [ "$DIR" != "$1" ]; then
+       NEWPATH=${NEWPATH:+$NEWPATH:}$DIR
+     fi
+  done
+
+  # Then prepend the directory
+  export PATH=$1:$NEWPATH
+}
 
 append () {
   # First remove the directory
@@ -22,7 +35,7 @@ if [ -f "$HOME/.bashrc" ] ; then
 fi
 
 if [ -d "$HOME/bin" ] ; then
-  append $HOME/bin
+  prepend $HOME/bin
 fi
 
 unset append
@@ -34,9 +47,9 @@ then
 fi
 xrdb -merge ~/.Xresources
 
-if [[ -e ".bbbash_profile" ]]
+if [[ -e ".bash_profile.local" ]]
 then
-    source .bbbash_profile
+    source .bash_profile.local
 fi
 
 # End ~/.bash_profile
