@@ -120,9 +120,6 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Alt-] to open tag in vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" change paste
-nmap <silent> cp "_cw<C-R>"<Esc>
-
 "Remap <C-e> and <C-y> to shift the viewport faster
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
